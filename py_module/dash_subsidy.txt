@@ -1,0 +1,2 @@
+dash_subsidy is available at:
+git clone https://github.com/vertoe/dash_subsidy.git

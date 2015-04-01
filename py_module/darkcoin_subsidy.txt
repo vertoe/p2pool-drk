@@ -1,2 +1,0 @@
-darkcoin_subsidy is available at:
-git clone https://github.com/vertoe/darkcoin_subsidy.git

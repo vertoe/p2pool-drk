@@ -2,7 +2,7 @@ from twisted.internet import defer
 from twisted.python import log
 
 import p2pool
-from p2pool.darkcoin import data as darkcoin_data
+from p2pool.dash import data as dash_data
 from p2pool.util import deferral, forest, jsonrpc, variable
 
 class HeaderWrapper(object):
@@ -10,7 +10,7 @@ class HeaderWrapper(object):
     
     @classmethod
     def from_header(cls, header):
-        return cls(darkcoin_data.hash256(darkcoin_data.block_header_type.pack(header)), header['previous_block'])
+        return cls(dash_data.hash256(dash_data.block_header_type.pack(header)), header['previous_block'])
     
     def __init__(self, hash, previous_hash):
         self.hash, self.previous_hash = hash, previous_hash
@@ -89,13 +89,13 @@ class HeightTracker(object):
         return height - best_height
 
 @defer.inlineCallbacks
-def get_height_rel_highest_func(darkcoind, factory, best_block_func, net):
-    if '\ngetblock ' in (yield deferral.retry()(darkcoind.rpc_help)()):
+def get_height_rel_highest_func(dashd, factory, best_block_func, net):
+    if '\ngetblock ' in (yield deferral.retry()(dashd.rpc_help)()):
         @deferral.DeferredCacher
         @defer.inlineCallbacks
         def height_cacher(block_hash):
             try:
-                x = yield darkcoind.rpc_getblock('%x' % (block_hash,))
+                x = yield dashd.rpc_getblock('%x' % (block_hash,))
             except jsonrpc.Error_for_code(-5): # Block not found
                 if not p2pool.DEBUG:
                     raise deferral.RetrySilentlyException()

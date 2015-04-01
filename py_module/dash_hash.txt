@@ -1,0 +1,2 @@
+dash_hash is available at
+git clone https://github.com/vertoe/dash_hash.git
