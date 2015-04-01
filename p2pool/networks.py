@@ -1,4 +1,4 @@
-from p2pool.darkcoin import networks
+from p2pool.dash import networks
 from p2pool.util import math
 
 # CHAIN_LENGTH = number of shares back client keeps
@@ -8,8 +8,8 @@ from p2pool.util import math
 # changes can be done by changing one, then the other
 
 nets = dict(
-    darkcoin=math.Object(
-        PARENT=networks.nets['darkcoin'],
+    dash=math.Object(
+        PARENT=networks.nets['dash'],
         SHARE_PERIOD=20, # seconds
         CHAIN_LENGTH=24*60*60//20, # shares
         REAL_CHAIN_LENGTH=24*60*60//20, # shares
@@ -22,12 +22,12 @@ nets = dict(
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=True,
         WORKER_PORT=7903,
-        BOOTSTRAP_ADDRS='drk.altmine.net darkcoin.fr p2pool.crunchpool.com x11p2p.com happymining.de ca.p2pool.sk eu.p2pool.sk us.p2pool.sk'.split(' '),
-        ANNOUNCE_CHANNEL='#p2pool-drk',
-        VERSION_CHECK=lambda v: v >= 110119,
+        BOOTSTRAP_ADDRS='dash.altmine.net dash.fr p2pool.crunchpool.com x11p2p.com happymining.de ca.p2pool.sk eu.p2pool.sk us.p2pool.sk'.split(' '),
+        ANNOUNCE_CHANNEL='#p2pool-dash',
+        VERSION_CHECK=lambda v: v >= 110216,
     ),
-    darkcoin_testnet=math.Object(
-        PARENT=networks.nets['darkcoin_testnet'],
+    dash_testnet=math.Object(
+        PARENT=networks.nets['dash_testnet'],
         SHARE_PERIOD=20, # seconds
         CHAIN_LENGTH=24*60*60//20, # shares
         REAL_CHAIN_LENGTH=24*60*60//20, # shares
@@ -40,7 +40,7 @@ nets = dict(
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False,
         WORKER_PORT=17903,
-        BOOTSTRAP_ADDRS='turing.darkco.in darkcoin.fr test.p2pool.masternode.io'.split(' '),
+        BOOTSTRAP_ADDRS='turing.darkco.in dash.fr test.p2pool.masternode.io'.split(' '),
         ANNOUNCE_CHANNEL='',
         VERSION_CHECK=lambda v: True,
     ),
