@@ -2,7 +2,7 @@ Requirements:
 -------------------------
 Generic:
 
-* Dash >=0.11.2.16
+* Dash >=0.11.2.17
 * Python >=2.7
 * Twisted >=13.0.0
 * Zope.interface >=3.8.0
@@ -16,14 +16,14 @@ Install Python modules:
 -------------------------
 dash_hash:
 
-    git clone https://github.com/vertoe/dash_hash.git
-    cd dash_hash
+    git clone https://github.com/vertoe/darkcoin_hash.git
+    cd darkcoin_hash
     python setup.py install
 
 dash_subsidy:
 
-    git clone https://github.com/vertoe/dash_subsidy.git
-    cd dash_subsidy
+    git clone https://github.com/vertoe/darkcoin_subsidy.git
+    cd darkcoin_subsidy
     python setup.py install
 
 Running P2Pool:
