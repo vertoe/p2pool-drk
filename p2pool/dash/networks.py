@@ -43,7 +43,7 @@ nets = dict(
         P2P_PREFIX='cee2caff'.decode('hex'),
         P2P_PORT=19999,
         ADDRESS_VERSION=139,
-        SCRIPT_ADDRESS_VERSION=16,
+        SCRIPT_ADDRESS_VERSION=19,
         RPC_PORT=19998,
         RPC_CHECK=defer.inlineCallbacks(lambda dashd: defer.returnValue(
             'dashaddress' in (yield dashd.rpc_help()) and
