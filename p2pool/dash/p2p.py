@@ -66,7 +66,7 @@ class Protocol(p2protocol.Protocol):
     message_inv = pack.ComposedType([
         ('invs', pack.ListType(pack.ComposedType([
             ('type', pack.EnumType(pack.IntType(32), {1: 'tx', 2: 'block', 3: 'filtered_block', 4: 'txlock_request', 5: 'txlock_vote', 6: 'spork', 7: 'masternode_winner', 8: 'masternode_scanning_error'})),
-              ('hash', pack.IntType(256)),
+            ('hash', pack.IntType(256)),
         ]))),
     ])
     def handle_inv(self, invs):
